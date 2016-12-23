@@ -6,6 +6,7 @@ import (
 	"net/url"
 	"os"
 	"path/filepath"
+	"runtime"
 	"strings"
 
 	valid "github.com/asaskevich/govalidator"
@@ -103,7 +104,12 @@ func GetInstitutionName(emailOrURL string) string {
 func getInstitutionName(domainName string) (string, error) {
 	domainParts := splitDomainName(domainName)
 
-	path := filepath.Join("domains", domainParts[len(domainParts)-1])
+	_, filename, _, ok := runtime.Caller(0)
+	if !ok {
+		return "", errors.New("Path to 'domains' folder not found")
+	}
+
+	path := filepath.Join(filepath.Dir(filename), "domains", domainParts[len(domainParts)-1])
 	for i := len(domainParts) - 2; i >= 0; i-- {
 		path = filepath.Join(path, domainParts[i])
 		if fileExits(path + ".txt") {
