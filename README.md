@@ -40,10 +40,10 @@ swot.IsAcademic("http://www.rangers.co.uk") //false
 #### Find School Names
 
 ```go
-swot.GetInstitutionName("abadojack@students.uonbi.ac.ke")
+swot.GetSchoolName("abadojack@students.uonbi.ac.ke")
 # => "University of Nairobi"
 
-swot.GetInstitutionName("http://www.stanford.edu")
+swot.GetSchoolName("http://www.stanford.edu")
 # => "Stanford University"
 ```
 

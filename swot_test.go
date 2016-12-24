@@ -81,7 +81,7 @@ func Test_GetSchoolName(t *testing.T) {
 	}
 
 	for key, want := range tests {
-		got := GetInstitutionName(key)
+		got := GetSchoolName(key)
 		if strings.Compare(got, want) != 0 {
 			fmt.Println(strings.Compare(got, want))
 			t.Fatalf("%s, want:%s, got:%s\n", key, want, got)

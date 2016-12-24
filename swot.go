@@ -85,9 +85,9 @@ func fileExits(path string) bool {
 	return false
 }
 
-//GetInstitutionName returns the name of the academic institution
+//GetSchoolName returns the name of the academic institution
 //or an empty string if the name of the institution is not found.
-func GetInstitutionName(emailOrURL string) string {
+func GetSchoolName(emailOrURL string) string {
 	domainName, err := getDomainName(emailOrURL)
 	if err != nil {
 		return ""
