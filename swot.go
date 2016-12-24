@@ -106,7 +106,7 @@ func getInstitutionName(domainName string) (string, error) {
 
 	_, filename, _, ok := runtime.Caller(0)
 	if !ok {
-		return "", errors.New("Path to 'domains' folder not found")
+		return "", errors.New("Path to 'domains' directory not found")
 	}
 
 	path := filepath.Join(filepath.Dir(filename), "domains", domainParts[len(domainParts)-1])
